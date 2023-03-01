@@ -1,0 +1,24 @@
+{
+  "name": "YK_SDK Packages",
+  "author": "yukihoaa@gmail.com",
+  "packages": {
+    "com.yukihoaa.AniPIN": {
+      "versions": {
+        "0.1.3": {
+          "name": "com.yukihoaa.AniPIN",
+          "displayName": "AniPIN",
+          "version": "1.3",
+          "unity": "2019.4",
+          "description": "Make PIN to Avatar",
+          "author": {
+            "name": "Yuki",
+            "email": "yukihoaa@gmail.com",
+            "url": "https://github.com/YukihoAA/AniPIN"
+          "url": "https://github.com/YukihoAA/AniPIN/releases/download/0.1.3/com.yukihoaa.anipin-0.1.3.zip",
+          "repo": "https://vpm.directus.app/assets/936917f9-c2d4-4470-a5bc-9bb38176fa01?download"
+          },
+        }
+      }
+    }
+  }
+}
