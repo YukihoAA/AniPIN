@@ -59,8 +59,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-Assets/AniPIN/lastVerCheckHour*
-Assets/AniPIN/newerVersion*
+Assets/[Ss]cenes*
 .idea/.idea.vpm-package-maker/.idea
 Assets/PackageMakerWindowData.asset*
 .idea
