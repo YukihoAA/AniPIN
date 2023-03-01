@@ -44,7 +44,7 @@ namespace YagihataItems.AniPIN
             "MuteSelf",
             "InStation"
         };
-        private const string currentVersion = "1.2";
+        private const string currentVersion = "1.3";
         private const string versionUrl = "https://raw.githubusercontent.com/YukihoAA/AniPIN/main/CurrentVersion.txt";
         private const string manualUrl = "https://github.com/YukihoAA/AniPIN";
         private const string releaseUrl = "https://github.com/YukihoAA/AniPIN/releases";
@@ -105,16 +105,25 @@ namespace YagihataItems.AniPIN
                         CheckNewerVersion();
                         File.WriteAllText(workFolderPath + "lastVerCheckHour.txt", DateTime.Now.Hour.ToString());
                     }
-                    using(new EditorGUILayout.HorizontalScope(GUI.skin.box))
-                    {
-                        GUILayout.FlexibleSpace();
-                        GUILayout.Label($"AniPin-v{currentVersion}");
-                    }
                     if (Convert.ToDouble(currentVersion) < Convert.ToDouble(newerVersion))
                     {
+						using(new EditorGUILayout.HorizontalScope(GUI.skin.box))
+						{
+							GUILayout.FlexibleSpace();
+							if(GUILayout.Button("Update"))
+							{
+								Application.OpenURL(releaseUrl);
+							}
+							GUILayout.Label($"AniPin-v{currentVersion}");
+						}
                         EditorGUILayout.HelpBox($"新しいバージョン「{newerVersion}」がリリースされています！", MessageType.Info);
-						EditorGUILayoutExtra.LinkLabel("Download : GitHub", Color.blue, new Vector2(), 0, releaseUrl);
                     }
+					else
+						using(new EditorGUILayout.HorizontalScope(GUI.skin.box))
+						{
+							GUILayout.FlexibleSpace();
+							GUILayout.Label($"AniPin-v{currentVersion}");
+						}
                     EditorGUILayoutExtra.Space();
                     var avatarDescriptors = FindObjectsOfType(typeof(VRCAvatarDescriptor));
                     indexedList.list = avatarDescriptors.Select(n => n.name).ToArray();
