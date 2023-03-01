@@ -16,6 +16,7 @@ namespace YagihataItems.AniPIN
         [SerializeField] public bool OptimizeParams { get { return aniPINVariablesValues.OptimizeParams; } set { aniPINVariablesValues.OptimizeParams = value; } }
         [SerializeField] public bool ObfuscateAnimator { get { return aniPINVariablesValues.ObfuscateAnimator; } set { aniPINVariablesValues.ObfuscateAnimator = value; } }
         [SerializeField] public bool GetInactiveObjects { get { return aniPINVariablesValues.GetInactiveObjects; } set { aniPINVariablesValues.GetInactiveObjects = value; } }
+        [SerializeField] public bool MakeMenuItems { get { return aniPINVariablesValues.MakeMenuItems; } set { aniPINVariablesValues.MakeMenuItems = value; } }
         [SerializeField] public string FolderID { get { return aniPINVariablesValues.FolderID; } set { aniPINVariablesValues.FolderID = value; } }
         [SerializeField] [HideInInspector] public AniPINVariables aniPINVariablesValues = new AniPINVariables();
         // Start is called before the first frame update
@@ -39,6 +40,7 @@ namespace YagihataItems.AniPIN
             this.FolderID = variables.FolderID;
             this.ObfuscateAnimator = variables.ObfuscateAnimator;
             this.GetInactiveObjects = variables.GetInactiveObjects;
+            this.MakeMenuItems = variables.MakeMenuItems;
         }
         public AniPINVariables GetVariables()
         {
@@ -51,7 +53,8 @@ namespace YagihataItems.AniPIN
                 OptimizeParams = this.OptimizeParams,
                 FolderID = this.FolderID,
                 ObfuscateAnimator = this.ObfuscateAnimator,
-                GetInactiveObjects = this.GetInactiveObjects
+                GetInactiveObjects = this.GetInactiveObjects,
+                MakeMenuItems = this.MakeMenuItems
             };
         }
     }
@@ -66,10 +69,11 @@ namespace YagihataItems.AniPIN
             set { rawPIN = Regex.Replace(value, @"[^0-9]", ""); }
         }
         [SerializeField] public bool SavePIN = true;
-        [SerializeField] public bool WriteDefaults = false;
+        [SerializeField] public bool WriteDefaults = true;
         [SerializeField] public bool OptimizeParams = true;
-        [SerializeField] public bool ObfuscateAnimator = true;
+        [SerializeField] public bool ObfuscateAnimator = false;
         [SerializeField] public bool GetInactiveObjects = true;
+        [SerializeField] public bool MakeMenuItems = false;
         [SerializeField] [HideInInspector] private string rawPIN = "";
         [SerializeField] public string FolderID = "";
     }

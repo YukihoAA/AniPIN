@@ -526,7 +526,7 @@ namespace YagihataItems.AniPIN
                         AvatarDeobfuscator.variables.Add(variablesValues);
                         var name = "AniPIN_IDC_" + variablesValues.FolderID;
                         var idContainer = GameObject.Find(name);
-                        if (idContainer != null)
+                        while ((idContainer = GameObject.Find(name)) != null)
                         {
                             UnityEngine.Object.DestroyImmediate(idContainer);
                             EditorUtility.SetDirty(variablesValues.AvatarRoot);
