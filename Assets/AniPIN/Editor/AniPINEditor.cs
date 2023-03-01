@@ -196,15 +196,6 @@ namespace YagihataItems.AniPIN
                             }
                         }
                     }
-                    EditorGUILayoutExtra.SeparatorWithSpace();
-                    using (new EditorGUILayout.VerticalScope(GUI.skin.box))
-                    {
-                        EditorGUILayout.HelpBox("AniPINをダウンロードしてくださり、誠にありがとうございます！\n" +
-                        "使用法がわからない場合は、下記リンクより説明書をご覧になった上で使ってみてください。\n" +
-                        "もしバグや機能追加の要望などありましたら、TwitterのDMで教えていただけますと幸いです。", MessageType.None);
-                        EditorGUILayoutExtra.LinkLabel("AniPIN – Avatar Lock System 説明書", Color.blue, new Vector2(), 0, manualUrl);
-                        EditorGUILayoutExtra.LinkLabel("Twitter : @Yagihata4x", Color.blue, new Vector2(), 0, twitterUrl);
-                    }
                 }
             }
         }
