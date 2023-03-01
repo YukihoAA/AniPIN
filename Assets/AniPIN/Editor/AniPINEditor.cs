@@ -47,7 +47,7 @@ namespace YagihataItems.AniPIN
         private const string currentVersion = "1.2";
         private const string versionUrl = "https://raw.githubusercontent.com/YukihoAA/AniPIN/main/CurrentVersion.txt";
         private const string manualUrl = "https://github.com/YukihoAA/AniPIN";
-        private const string twitterUrl = "https://twitter.com/Yagihata4x";
+        private const string releaseUrl = "https://github.com/YukihoAA/AniPIN/releases";
         private const VRCExpressionParameters.ValueType IntParam = VRCExpressionParameters.ValueType.Int;
         private const VRCExpressionParameters.ValueType BoolParam = VRCExpressionParameters.ValueType.Bool;
         private AniPINSettings aniPINSettings;
@@ -113,6 +113,7 @@ namespace YagihataItems.AniPIN
                     if (Convert.ToDouble(currentVersion) < Convert.ToDouble(newerVersion))
                     {
                         EditorGUILayout.HelpBox($"新しいバージョン「{newerVersion}」がリリースされています！", MessageType.Info);
+						EditorGUILayoutExtra.LinkLabel("Download : GitHub", Color.blue, new Vector2(), 0, releaseUrl);
                     }
                     EditorGUILayoutExtra.Space();
                     var avatarDescriptors = FindObjectsOfType(typeof(VRCAvatarDescriptor));
