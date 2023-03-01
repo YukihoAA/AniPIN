@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches: main
-    paths: Packages/com.vrchat.AniPIN/**
+    paths: Packages/com.yukihoaa.anipin/**
 
 env:
-  packageName: "com.vrchat.AniPIN"
+  packageName: "com.yukihoaa.anipin"
 
 jobs:
   build:
