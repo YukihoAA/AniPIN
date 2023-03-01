@@ -6,7 +6,7 @@
   "dependencies": {},
   "gitDependencies": {},
   "vpmDependencies": {
-    "com.vrchat.avatars": "3.1.11"
+    "com.vrchat.avatars" : ">=3.1.2"
   },
   "legacyFolders": {
 	  "Assets\\AniPIN" : "513a67139704dd249855ebe5f760cba3"
