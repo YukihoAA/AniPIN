@@ -60,3 +60,7 @@ crashlytics-build.properties
 
 Assets/AniPIN/lastVerCheckHour*
 Assets/AniPIN/newerVersion*
+.idea/.idea.vpm-package-maker/.idea
+Assets/PackageMakerWindowData.asset*
+.idea
+.vscode
