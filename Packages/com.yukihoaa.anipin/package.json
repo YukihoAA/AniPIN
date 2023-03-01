@@ -1,8 +1,8 @@
 {
   "name": "com.yukihoaa.anipin",
-  "displayName": "com.yukihoaa.anipin",
+  "displayName": "AniPIN",
   "version": "0.1.3",
-  "description": "Add PIN to avatars",
+  "description": "Add PIN password to avatars",
   "dependencies": {},
   "gitDependencies": {},
   "vpmDependencies": {
