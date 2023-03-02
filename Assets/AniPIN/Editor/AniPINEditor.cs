@@ -103,7 +103,7 @@ namespace YagihataItems.AniPIN
 					using(new EditorGUILayout.HorizontalScope(GUI.skin.box))
 					{
 						GUILayout.FlexibleSpace();
-						GUILayout.Label($"AniPin-v{currentVersion}");
+						GUILayout.Label($"AniPIN-v{currentVersion}");
 					}
                     if (newerVersion.Length > 0 && Convert.ToDouble(currentVersion) < Convert.ToDouble(newerVersion))
                     {
