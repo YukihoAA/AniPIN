@@ -56,32 +56,6 @@ namespace YagihataItems.YagiUtils
             }
             expressionParameters.parameters = newParams.ToArray();
         }
-        public static int CalculateMemoryCount(this VRCExpressionParameters expressionParameters, VRCExpressionParameters.Parameter[] additionalParams = null, bool optimize = false, string removablePrefix = "", bool compareOnly = false)
-        {
-            if (additionalParams == null && !optimize)
-                return expressionParameters.CalcTotalCost();
-
-            var newParams = new List<VRCExpressionParameters.Parameter>();
-            foreach (var v in expressionParameters.parameters)
-            {
-                var nullName = string.IsNullOrWhiteSpace(v.name);
-                var duplicateName = newParams.Any(n => n.name == v.name && n.valueType == v.valueType);
-                var prefixContain = v.name.StartsWith(removablePrefix);
-                var additionalContain = additionalParams.Any(n => n.name == v.name);
-                if (!optimize || (!nullName && !duplicateName &&
-                    (!prefixContain || additionalContain)))
-                    newParams.Add(v);
-            }
-            if(!compareOnly && additionalParams != null && additionalParams.Any())
-            {
-                foreach (var v in additionalParams)
-                {
-                    if (!newParams.Any(n => n.name == v.name && n.valueType == v.valueType))
-                        newParams.Add(v);
-                }
-            }
-            return newParams.Sum(n => VRCExpressionParameters.TypeCost(n.valueType));
-        }
         public static AnimatorController GetFXLayer(this VRCAvatarDescriptor avatar, string createFolderDest, bool createNew = true)
         {
             AnimatorController controller = null;
@@ -102,10 +76,10 @@ namespace YagihataItems.YagiUtils
                     {
                         avatar.baseAnimationLayers = new CustomAnimLayer[]
                         {
-                            new CustomAnimLayer(),
-                            new CustomAnimLayer(),
-                            new CustomAnimLayer(),
-                            new CustomAnimLayer(){ isEnabled = true, animatorController = controller, type = AnimLayerType.FX }
+                        new CustomAnimLayer(),
+                        new CustomAnimLayer(),
+                        new CustomAnimLayer(),
+                        new CustomAnimLayer(){ isEnabled = true, animatorController = controller, type = AnimLayerType.FX }
                         };
                     }
                     else
@@ -116,11 +90,11 @@ namespace YagihataItems.YagiUtils
             }
             return controller;
         }
-        public static VRCExpressionParameters GetExpressionParameters(this VRCAvatarDescriptor avatar, string createFolderDest, bool createNew = true)
+        public static VRCExpressionParameters GetExpressionParameters(this VRCAvatarDescriptor avatar, string createFolderDest)
         {
             if (avatar.expressionParameters != null)
                 return avatar.expressionParameters;
-            else if (createNew)
+            else
             {
                 var param = ScriptableObject.CreateInstance<VRCExpressionParameters>();
                 param.parameters = new VRCExpressionParameters.Parameter[16];
@@ -136,8 +110,6 @@ namespace YagihataItems.YagiUtils
                 avatar.expressionParameters = param;
                 return param;
             }
-            else
-                return null;
         }
         public static void AddParameter(this VRCExpressionParameters expressionParameters, string name, VRCExpressionParameters.ValueType valueType, bool saveValue = false, float defaultValue = 0f )
         {

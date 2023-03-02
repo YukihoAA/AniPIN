@@ -507,12 +507,9 @@ namespace YagihataItems.AniPIN
             EditorApplication.playModeStateChanged += OnChangedPlayMode;
 
         }
-
-        private static void OnChangedPlayMode(PlayModeStateChange state)
-        {
-            if (state == PlayModeStateChange.EnteredEditMode)
-            {
-                AvatarDeobfuscator.variables = new List<AniPINVariables>();
+		
+		public static void RemovePlayModeObjects(){
+			AvatarDeobfuscator.variables = new List<AniPINVariables>();
                 var arr = UnityEngine.Object.FindObjectsOfType(typeof(AniPINSettings));
                 if (arr == null) return;
                 var castedArr = arr.Cast<AniPINSettings>();
@@ -535,6 +532,13 @@ namespace YagihataItems.AniPIN
                         }
                     }
                 }
+		}
+
+        private static void OnChangedPlayMode(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.EnteredEditMode)
+            {
+                AvatarDeobfuscator.RemovePlayModeObjects();
             }
             else if (state == PlayModeStateChange.EnteredPlayMode)
             {

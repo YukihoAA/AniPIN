@@ -41,7 +41,6 @@ namespace YagihataItems.YagiUtils
             transition.hasFixedDuration = true;
             transition.duration = 0;
             transition.offset = 0;
-            transition.canTransitionToSelf = false;
             return transition;
         }
         public static AnimatorStateTransition MakeTransition(this AnimatorState srcState, AnimatorState destState, string name = "")
@@ -70,21 +69,6 @@ namespace YagihataItems.YagiUtils
                     new AnimatorCondition(){ mode = mode, parameter = param, threshold = threshold },
                     new AnimatorCondition(){ mode = localMode ? AnimatorConditionMode.If : AnimatorConditionMode.IfNot, parameter = "IsLocal", threshold = 0 }
                 };
-            transition.conditions = condition;
-            return condition;
-        }
-        public static AnimatorCondition[] AddCondition(this AnimatorStateTransition transition, AnimatorConditionMode mode, string param, float threshold, bool localOnly, bool localMode)
-        {
-            AnimatorCondition[] condition = transition.conditions;
-            Array.Resize(ref condition, transition.conditions.Length + (localOnly ? 2 : 1));
-
-            if (!localOnly)
-                condition[condition.Length - 1] = new AnimatorCondition() { mode = mode, parameter = param, threshold = threshold };
-            else
-            {
-                condition[condition.Length - 2] = new AnimatorCondition() { mode = mode, parameter = param, threshold = threshold };
-                condition[condition.Length - 1] = new AnimatorCondition() { mode = localMode ? AnimatorConditionMode.If : AnimatorConditionMode.IfNot, parameter = "IsLocal", threshold = 0 };
-            }
             transition.conditions = condition;
             return condition;
         }
