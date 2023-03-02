@@ -1,13 +1,13 @@
 {
   "name": "com.yukihoaa.anipin",
   "displayName": "AniPIN",
-  "version": "1.5.0",
+  "version": "1.5",
   "description": "Add PIN password to avatars",
   "dependencies": {},
   "vpmDependencies": {
     "com.vrchat.avatars" : ">=3.1.2"
   },
-  "url" : "https://github.com/YukihoAA/AniPIN/releases/download/1.5.0/com.yukihoaa.anipin-1.5.0.zip",
+  "url" : "https://github.com/YukihoAA/AniPIN/releases/download/1.5/com.yukihoaa.anipin-1.5.zip",
   "legacyFolders": {
 	  "Assets\\AniPIN" : ""
   },
