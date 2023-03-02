@@ -112,12 +112,6 @@
         "com.unity.nuget.newtonsoft-json": "2.0.2"
       }
     },
-    "com.yukihoaa.anipin": {
-      "version": "file:com.yukihoaa.anipin",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

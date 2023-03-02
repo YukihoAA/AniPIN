@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches: main
-    paths: Packages/com.yukihoaa.anipin/**
+    paths: Assets/AniPIN/**
 
 env:
-  packageName: "com.yukihoaa.anipin"
+  packageName: "AniPIN"
 
 jobs:
   build:
@@ -23,22 +23,14 @@ jobs:
         id: version
         uses: notiz-dev/github-action-json-property@7c8cf5cc36eb85d8d287a8086a39dac59628eb31
         with: 
-            path: "Packages/${{env.packageName}}/package.json"
+            path: "package.json"
             prop_path: "version"
     
       - name: Set Environment Variables
         run: |
-          echo "zipFile=${{ env.packageName }}-${{ steps.version.outputs.prop }}".zip >> $GITHUB_ENV
           echo "unityPackage=${{ env.packageName }}-${{ steps.version.outputs.prop }}.unitypackage" >> $GITHUB_ENV
-        
-      - name: Create Zip
-        uses: thedoctor0/zip-release@09336613be18a8208dfa66bd57efafd9e2685657
-        with:
-          type: "zip"
-          directory: "Packages/${{env.packageName}}/"
-          filename: "../../${{env.zipFile}}" # make the zip file two directories up, since we start two directories in above
           
-      - run: find "Packages/${{env.packageName}}/" -name \*.meta >> metaList
+      - run: find "Assets/AniPIN/" -name \*.meta >> metaList
           
       - name: Create UnityPackage
         uses: pCYSl5EDgo/create-unitypackage@cfcd3cf0391a5ef1306342794866a9897c32af0b
@@ -52,7 +44,5 @@ jobs:
         with:
           tag_name: ${{ steps.version.outputs.prop }}
           files: |
-            ${{ env.zipFile }}
             ${{ env.unityPackage }}
-            Packages/${{ env.packageName }}/package.json
             
