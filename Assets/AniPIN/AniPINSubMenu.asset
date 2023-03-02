@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -340790334, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
+  m_Name: AniPINSubMenu
+  m_EditorClassIdentifier: 
+  controls:
+  - name: PIN 6
+    icon: {fileID: 2800000, guid: 43d9e7f483ff22c4ab67d102270eff32, type: 3}
+    type: 101
+    parameter:
+      name: AniPINParam
+    value: 7
+    style: 0
+    subMenu: {fileID: 0}
+    subParameters: []
+    labels: []
+  - name: PIN 7
+    icon: {fileID: 2800000, guid: ff7214084a3f4d74b9d3088790d3e4e5, type: 3}
+    type: 101
+    parameter:
+      name: AniPINParam
+    value: 8
+    style: 0
+    subMenu: {fileID: 0}
+    subParameters: []
+    labels: []
+  - name: PIN 8
+    icon: {fileID: 2800000, guid: ebe5849e92f74ee47b952eb8a683d4ed, type: 3}
+    type: 101
+    parameter:
+      name: AniPINParam
+    value: 9
+    style: 0
+    subMenu: {fileID: 0}
+    subParameters: []
+    labels: []
+  - name: PIN 9
+    icon: {fileID: 2800000, guid: 516e0f3413ad19b4dbf76f65e665e786, type: 3}
+    type: 101
+    parameter:
+      name: AniPINParam
+    value: 10
+    style: 0
+    subMenu: {fileID: 0}
+    subParameters: []
+    labels: []
+  - name: ENTER
+    icon: {fileID: 2800000, guid: f15e309237c49a84c883b8caddeb0a42, type: 3}
+    type: 101
+    parameter:
+      name: AniPINParam
+    value: 11
+    style: 0
+    subMenu: {fileID: 0}
+    subParameters: []
+    labels: []
+  - name: RESET
+    icon: {fileID: 2800000, guid: 6c75f07f838e77049b4726a01238992c, type: 3}
+    type: 101
+    parameter:
+      name: AniPINParam
+    value: 12
+    style: 0
+    subMenu: {fileID: 0}
+    subParameters: []
+    labels: []
