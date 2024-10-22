@@ -62,7 +62,7 @@ namespace YagihataItems.AniPIN
         private bool showingVerticalScroll = false;
         private static string newerVersion = "";
 
-        [MenuItem("AniPIN")]
+        [MenuItem("AniPIN/AniPIN")]
         private static void Create()
         {
             GetWindow<AniPINEditor>("AniPIN");
