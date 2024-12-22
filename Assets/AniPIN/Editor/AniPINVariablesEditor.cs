@@ -35,30 +35,9 @@ namespace YagihataItems.AniPIN
                 EditorUtility.SetDirty(settings);
             }
 
-            var bef4 = settings.WriteDefaults;
-            settings.WriteDefaults = EditorGUILayout.Toggle("Write Defaults", settings.WriteDefaults);
-            if (settings.WriteDefaults != bef4)
-            {
-                EditorUtility.SetDirty(settings);
-            }
-
             var bef5 = settings.FolderID;
             settings.FolderID = EditorGUILayout.TextField("Folder ID", settings.FolderID);
             if (settings.FolderID != bef5)
-            {
-                EditorUtility.SetDirty(settings);
-            }
-
-            var bef6 = settings.ObfuscateAnimator;
-            settings.ObfuscateAnimator = EditorGUILayout.Toggle("Obfuscate Animator", settings.ObfuscateAnimator);
-            if (settings.ObfuscateAnimator != bef6)
-            {
-                EditorUtility.SetDirty(settings);
-            }
-
-            var bef7 = settings.GetInactiveObjects;
-            settings.GetInactiveObjects = EditorGUILayout.Toggle("Get Inactive Objects", settings.GetInactiveObjects);
-            if (settings.GetInactiveObjects != bef7)
             {
                 EditorUtility.SetDirty(settings);
             }

@@ -15,47 +15,6 @@ namespace YagihataItems.YagiUtils
 {
     public static class AvatarUtils
     {
-        public static bool ValidateWriteDefaults(this VRCAvatarDescriptor avatar, bool writeDefaults)
-        {
-            if (avatar.baseAnimationLayers != null)
-            {
-                return !avatar.baseAnimationLayers.Any(baseAnimationLayer =>
-                {
-                    if (baseAnimationLayer.animatorController == null)
-                        return false;
-                    var controller = (AnimatorController)baseAnimationLayer.animatorController;
-                    return controller.layers
-                        .Any(layer => layer.stateMachine != null && layer.stateMachine.states.Any(n => n.state.writeDefaultValues != writeDefaults));
-                });
-            }
-            return true;
-        }
-        public static bool ValidateWriteDefaults(this AnimatorController controller, bool writeDefaults)
-        {
-            return !controller.layers.Any(layer => layer.stateMachine != null && layer.stateMachine.states.Any(n => n.state.writeDefaultValues != writeDefaults));
-        }
-        public static bool CheckParameterSpaces(this VRCExpressionParameters expressionParameters, string name, VRCExpressionParameters.ValueType valueType)
-        {
-            int currentCost = expressionParameters.CalcTotalCost();
-            var hasParam = expressionParameters.parameters.Any(n => n.name == name && n.valueType == valueType);
-            if (!hasParam)
-                currentCost += VRCExpressionParameters.TypeCost(valueType);
-            if (currentCost <= VRCExpressionParameters.MAX_PARAMETER_COST)
-            {
-                return true;
-            }
-            return false;
-        }
-        public static void OptimizeParameter(this VRCExpressionParameters expressionParameters)
-        {
-            var newParams = new List<VRCExpressionParameters.Parameter>();
-            foreach(var v in expressionParameters.parameters)
-            {
-                if (!string.IsNullOrWhiteSpace(v.name) && !newParams.Any(n => n.name == v.name && n.valueType == v.valueType))
-                    newParams.Add(v);
-            }
-            expressionParameters.parameters = newParams.ToArray();
-        }
         public static AnimatorController GetFXLayer(this VRCAvatarDescriptor avatar, string createFolderDest, bool createNew = true)
         {
             AnimatorController controller = null;
@@ -110,12 +69,6 @@ namespace YagihataItems.YagiUtils
                 avatar.expressionParameters = param;
                 return param;
             }
-        }
-        public static void AddParameter(this VRCExpressionParameters expressionParameters, string name, VRCExpressionParameters.ValueType valueType, bool saveValue = false, float defaultValue = 0f )
-        {
-            var len = expressionParameters.parameters.Length;
-            Array.Resize(ref expressionParameters.parameters, len + 1);
-            expressionParameters.parameters[len] = new VRCExpressionParameters.Parameter() { name = name, valueType = valueType, saved = saveValue, defaultValue = defaultValue };
         }
         public static void TryRemoveParameter(this VRCExpressionParameters expressionParameters, string name)
         {
